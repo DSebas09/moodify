@@ -15,3 +15,6 @@ wheels/
 # Datasets (raw and processed)
 data/raw/
 data/processed/
+
+models/*.pkl
+models/*.png
