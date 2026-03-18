@@ -11,3 +11,7 @@ wheels/
 
 # IDE
 .idea/
+
+# Datasets (raw and processed)
+data/raw/
+data/processed/
