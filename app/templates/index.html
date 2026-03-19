@@ -22,20 +22,57 @@
     <div class="alert alert-danger">{{ error }}</div>
   {% endif %}
 
-  {% if result %}
-    <div class="card mt-3">
-      <div class="card-body">
-        <h5 class="card-title">{{ result.track_name }}</h5>
-        <p class="text-muted mb-2">{{ result.artists }}</p>
-        <h2 class="display-6 fw-bold">{{ result.mood | upper }}</h2>
-        <hr>
-        <ul class="list-unstyled">
-          {% for key, val in result.features.items() %}
-            <li><strong>{{ key }}:</strong> {{ val }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+  {% if options %}
+  <div class="card border-0 shadow-sm mt-3">
+    <div class="card-body">
+      <p class="fw-semibold mb-3">Encontramos varias canciones con ese nombre, elige una:</p>
+      <form method="POST">
+        {% for opt in options %}
+        <button type="submit" name="track_index" value="{{ opt.index }}"
+                class="btn btn-outline-secondary w-100 text-start mb-2">
+          <strong>{{ opt.track_name }}</strong>
+          <span class="text-muted"> — {{ opt.artists }}</span>
+        </button>
+        {% endfor %}
+      </form>
     </div>
+  </div>
+  {% endif %}
+
+  {% if result %}
+  {% set mood = result.mood %}
+  <div class="card border-0 shadow-sm mood-{{ mood }}">
+    <div class="card-body p-4">
+
+      <span class="mood-badge badge-{{ mood }}">{{ mood | upper }}</span>
+
+      <h5 class="fw-bold mb-0">{{ result.track_name }}</h5>
+      <p class="text-muted mb-3">{{ result.artists }}</p>
+
+      <hr>
+
+      {% for key in ["valence", "energy", "danceability"] %}
+      {% set val = result.features[key] %}
+      <div class="mb-2">
+        <div class="d-flex justify-content-between small mb-1">
+          <span class="text-capitalize fw-semibold">{{ key }}</span>
+          <span>{{ val }}</span>
+        </div>
+        <div class="progress" style="height: 8px;">
+          <!-- prettier-ignore -->
+          <div class="progress-bar"
+               style="width: {{ (val * 100) | round }}%; background: var(--{{ mood }});">
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <p class="mt-3 mb-0 small text-muted">
+        Tempo: <strong>{{ result.features.tempo }} BPM</strong>
+      </p>
+
+    </div>
+  </div>
   {% endif %}
 </div>
 
