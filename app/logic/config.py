@@ -34,3 +34,5 @@ SEARCH_COLUMNS: list[str] = ["track_id", "track_name", "artists", "album_name"]
 AUTOCOMPLETE_MIN_CHARS: int = 2
 AUTOCOMPLETE_MAX_RESULTS: int = 8
 
+# App settings
+DEBUG: bool = False
