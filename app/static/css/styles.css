@@ -1,0 +1,27 @@
+:root {
+  --happy:     #f59e0b;
+  --energetic: #ef4444;
+  --chill:     #3b82f6;
+  --sad:       #6b7280;
+}
+
+body { font-family: 'Segoe UI', sans-serif; }
+
+.mood-happy     { border-left: 6px solid var(--happy);     background: #fffbeb; }
+.mood-energetic { border-left: 6px solid var(--energetic); background: #fef2f2; }
+.mood-chill     { border-left: 6px solid var(--chill);     background: #eff6ff; }
+.mood-sad       { border-left: 6px solid var(--sad);       background: #f9fafb; }
+
+.mood-badge {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: .4rem 1rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.badge-happy     { background: var(--happy);     color: #fff; }
+.badge-energetic { background: var(--energetic); color: #fff; }
+.badge-chill     { background: var(--chill);     color: #fff; }
+.badge-sad       { background: var(--sad);       color: #fff; }
