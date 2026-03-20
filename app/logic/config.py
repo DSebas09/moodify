@@ -17,3 +17,14 @@ FEATURES: list[str] = [
     "loudness",
     "popularity",
 ]
+
+# Mood labels
+MOOD_LABELS: list[str] = ["happy", "energetic", "chill", "sad"]
+
+MOOD_DISPLAY: dict[str, str] = {
+    "happy":     "Happy",
+    "energetic": "Energetic",
+    "chill":     "Chill",
+    "sad":       "Sad",
+}
+
