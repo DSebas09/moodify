@@ -3,6 +3,7 @@ from functools import lru_cache
 
 import joblib
 import pandas as pd
+from sklearn.pipeline import Pipeline
 
 from app.logic.config import MODEL_PATH, DATA_PATH
 
@@ -10,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 @lru_cache(maxsize=1)
-def get_pipeline() -> object:
+def get_pipeline() -> Pipeline:
     """Load and cache the trained mood classification pipeline."""
     if not MODEL_PATH.exists():
         raise FileNotFoundError(f"Model not found at: {MODEL_PATH}")
