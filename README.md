@@ -88,12 +88,31 @@ cd moodify
 
 ### 2. Install dependencies with uv
 
+#### Option A — with UV (recommended)
+
 ```bash
-# Install UV if you don't have it
+# Install UV if you don't have it (Linux/macOS)
 curl -Ls https://astral.sh/uv/install.sh | sh
+
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 # Install project dependencies
 uv sync
+```
+
+#### Option B — con pip (If don't have uv)
+
+```bash
+python -m venv .venv
+
+# Linux/macOS
+source .venv/bin/activate
+
+# Windows
+.venv\Scripts\activate
+
+pip install -r requirements.txt
 ```
 
 ### 3. Prepare the data and train the model
