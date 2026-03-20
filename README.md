@@ -119,16 +119,26 @@ pip install -r requirements.txt
 Run the notebooks in order:
 
 ```bash
+# with uv
 uv run jupyter notebook
+
+# with pip
+jupyter notebook
 ```
 
-- notebooks/02_mood_labels_creation.ipynb → genera data/processed/spotify_tracks_mood_clean.csv
-- notebooks/03_model_training.ipynb → genera models/mood_classifier.pkl
+Once Jupyter opens in your browser, run these notebooks in order:
+
+1. notebooks/02_mood_labels_creation.ipynb → generates data/processed/spotify_tracks_mood_clean.csv
+2. notebooks/03_model_training.ipynb → generates models/mood_classifier.pkl
 
 ### 4. Run the app
 
 ```bash
+# with uv
 uv run python -m app.app
+
+# with pip
+python -m app.app
 ```
     
 Open your browser to http://localhost:5000
