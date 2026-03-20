@@ -76,7 +76,7 @@ def predict_mood(track_id: str) -> dict[str, Any]:
     pipeline = get_pipeline()
     track = get_track_by_id(track_id)
 
-    features_vector = track[FEATURES].values.reshape(1, -1)
+    features_vector = track[FEATURES].to_frame().T
     mood = pipeline.predict(features_vector)[0]
 
     result = {
