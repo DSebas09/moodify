@@ -28,3 +28,9 @@ MOOD_DISPLAY: dict[str, str] = {
     "sad":       "Sad",
 }
 
+# Search & autocomplete
+SEARCH_COLUMNS: list[str] = ["track_id", "track_name", "artists", "album_name"]
+
+AUTOCOMPLETE_MIN_CHARS: int = 2
+AUTOCOMPLETE_MAX_RESULTS: int = 8
+
