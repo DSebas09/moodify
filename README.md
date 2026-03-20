@@ -1,4 +1,4 @@
-# Moodify — Clasificador de Mood Musical con IA
+# Moodify — AI-Powered Music Mood Classifier
 
 Moodify is a web app that predicts the **mood of a song** based on its 
 audio characteristics using a multiclass classification model trained 
@@ -10,7 +10,7 @@ Project developed as part of the Introduction to AI course — Master's in Compu
 
 ---
 
-## ¿Cómo funciona?
+## How does it work?
 
 The user enters the name of a song. The app searches for its audio features
 in the processed dataset, runs them through an ML pipeline, and returns one of
@@ -96,17 +96,17 @@ curl -Ls https://astral.sh/uv/install.sh | sh
 uv sync
 ```
 
-### 3. Preparar los datos y entrenar el modelo
-Ejecuta los notebooks en orden:
+### 3. Prepare the data and train the model
+Run the notebooks in order:
 
 ```bash
 uv run jupyter notebook
 ```
 
-- notebooks/02_creacion_labels_mood.ipynb → genera data/processed/spotify_tracks_mood_clean.csv
-- notebooks/03_entrenamiento_modelo.ipynb → genera models/mood_classifier.pkl
+- notebooks/02_mood_labels_creation.ipynb → genera data/processed/spotify_tracks_mood_clean.csv
+- notebooks/03_model_training.ipynb → genera models/mood_classifier.pkl
 
-### 4. Correr la app
+### 4. Run the app
 
 ```bash
 uv run python -m app.app
