@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from flask import Flask, jsonify, render_template, request
 
-from app.logic.config import AUTOCOMPLETE_MAX_RESULTS
+from app.logic.config import AUTOCOMPLETE_MAX_RESULTS, SEARCH_MAX_RESULTS
 from app.logic.predictor import predict_mood, search_tracks
 
 app = Flask(__name__)
@@ -28,10 +28,7 @@ def index():
                 error = "Please enter a track name."
             else:
                 try:
-                    matches = search_tracks(
-                        query=track_name,
-                        limit=AUTOCOMPLETE_MAX_RESULTS,
-                    )
+                    matches = search_tracks(query=track_name, limit=SEARCH_MAX_RESULTS)
                     if len(matches) == 1:
                         result = predict_mood(matches[0]["track_id"])
                     else:
